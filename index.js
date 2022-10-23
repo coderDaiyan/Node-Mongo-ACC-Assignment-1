@@ -3,7 +3,7 @@ const colors = require("colors");
 const erouter = require("express-dynamic-routing");
 const path = require("path");
 
-const PORT = 8080 || process.env.PORT;
+const PORT = 8080;
 const dir_path = path.join(__dirname, "routes");
 
 app.use(require("express").json());
@@ -19,6 +19,6 @@ app.get("/", (req, res) => {
   res.send("Welcome to Random User API");
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`App is listening on PORT ${PORT}`.green);
 });
